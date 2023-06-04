@@ -1,44 +1,60 @@
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    /*background-color: #e60e0e;*/
-    background-image: url(./imagenes/inersa.png);
-    background-size: cover;
-    background-position: center;
-    background-color: rgba(57, 167, 218, 0.5); /* Cambia el color de fondo con una opacidad del 50% */
-    color: #390f46; /* Cambia el color del texto a blanco */
-}
   
-  .login-container {
-    margin-left: auto;
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    padding-bottom: 3em;
+    margin: 0;
+    background-image: url(./imagenes/background.jpg);
+    color: #390f46; /* Cambia el color del texto a blanco */
+    min.height: 100vh;
+}
+  .logo{
+    color:  #7495f1;
+    font-size: 40px;
+    font-family: sans-serif;
+    padding-left:20px ;
+    float: left;
+    padding-top: 10px;
   }
+  .icono
+  {
+    width: 200px;
+    float: left;
+    height: 70px;
+    right: 40px;
+  }  
+
+
+  .login-container {
+    position: absolute;
+    width: 300 px;
+    margin: auto;
+    padding: 20px;  
+    top : 120px;
+    left: 800px ;
+
+ }
   
   h1 {
-    text-align: center;
+    text-align: left;
     color: #5a6bcc;
   }
   
   form input {
     display: block;
-    width: 100%;
+    width: 80%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    position: relative;
+
   }
   
   form button {
+    position: relative;
+    left: 80px;
     display: block;
-    width: 100%;
+    width: 40%;
     padding: 10px;
     background-color: #7495f1;
     color: #fff;
@@ -49,5 +65,44 @@ body {
   
   form button:hover {
     background-color: #457fa0;
+
   }
-  
+  .message-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #7495f1;
+  padding: 10px;
+  text-align: left;
+}
+
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #7495f1;
+  padding: .5em 0;
+  text-align: center;
+  width: 99%;
+}
+
+.footer-container {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.footer-item {
+  flex-basis: 300px;
+  margin: 10px;
+  text-align: left;
+  color: whitesmoke;
+}
+
+@media (max-width: 768px) {
+  .footer-item {
+    flex-basis: 100%;
+  }
+}
