@@ -79,6 +79,51 @@ CREATE TABLE IF NOT EXISTS `BOOKVAULT`.`LIBRO` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788498679789', 'Harper', 'Lee', 1, 281, 'Matar a un ruiseñor', 'Nueva York', 'J. B. Lippincott & Co.', 'Drama', 1960, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788408048111', 'Mario', 'Vargas Llosa', 3, 567, 'La casa verde', 'Lima', 'Seix Barral', 'Realismo mágico', 1966, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788432214228', 'Gustavo', 'Adolfo Bécquer', 1, 128, 'Rimas y leyendas', 'Sevilla', 'Espasa-Calpe', 'Poesía', 1860, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9780061120084', 'Dan', 'Brown', 1, 454, 'El código Da Vinci', 'Nueva York', 'Doubleday', 'Suspenso', 2003, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9780545010221', 'J.R.R.', 'Tolkien', 2, 398, 'El hobbit', 'Londres', 'George Allen & Unwin', 'Fantasía', 1937, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788483462587', 'Paulo', 'Coelho', 1, 208, 'El Alquimista', 'Río de Janeiro', 'Editorial Planeta', 'Ficción', 1988, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788420473582', 'Miguel', 'Delibes', 1, 344, 'Los santos inocentes', 'Valladolid', 'Alfaguara', 'Drama', 1981, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788408208124', 'Isabel', 'Allende', 2, 368, 'La casa de los espíritus', 'Santiago', 'Editorial Sudamericana', 'Realismo mágico', 1982, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788408193277', 'Stieg', 'Larsson', 1, 654, 'Los hombres que no amaban a las mujeres', 'Estocolmo', 'Norstedts Förlag', 'Suspenso', 2005, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788432229031', 'Federico', 'García Lorca', 1, 256, 'Bodas de sangre', 'Granada', 'Espasa-Calpe', 'Drama', 1933, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788466332288', 'John', 'Verdon', 1, 528, 'No abras los ojos', 'Nueva York', 'Random House', 'Suspenso', 2010, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788433979537', 'Antoine', 'de Saint-Exupéry', 1, 96, 'El principito', 'Nueva York', 'Reynal & Hitchcock', 'Literatura infantil', 1943, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788497592801', 'Fernando', 'Savater', 2, 208, 'Ética para Amador', 'Madrid', 'Editorial Ariel', 'Filosofía', 1991, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788435018927', 'Jane', 'Austen', 1, 400, 'Orgullo y prejuicio', 'Londres', 'Egerton', 'Novela romántica', 1813, 1);
+
+INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
+VALUES ('9788420472905', 'Arturo', 'Pérez-Reverte', 1, 536, 'El club Dumas', 'Madrid', 'Alfaguara', 'Misterio', 1993, 1);
+
 
 -- -----------------------------------------------------
 -- Table `mydb`.`FAVORITO`
