@@ -5,7 +5,7 @@ body {
     margin: 0;
     background-image: url(./imagenes/background.jpg);
     color: #390f46; /* Cambia el color del texto a blanco */
-    min.height: 100vh;
+    min-height: 100vh;
 }
   .logo{
     color:  #7495f1;
