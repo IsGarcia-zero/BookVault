@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Cocogoose Pro Bold';
+    src: url(../fonts/Cocogoose\ Pro-trial.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cocogoose Pro Light';
+    src: url(../fonts/Cocogoose\ Pro\ Light-trial.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cocogoose Pro Ultralight';
+    src: url(../fonts/Cocogoose\ Pro\ Ultralight-trial.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cocogoose Pro Regular';
+    src: url(../fonts/Cocogoose\ Pro\ Thin-trial.ttf);
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>IDLIBRO</th>
+                    <th>ISBN</th>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>EDICION</th>
+                    <th>PAGINAS</th>
+                    <th>TITULO</th>
+                    <th>CIUDAD</th>
+                    <th>EDITORIAL</th>
+                    <th>GENERO</th>
+                    <th>AÑO DE EDICION</th>
+                    <th>ADMINISTRADOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% results.forEach((libro)=> { %>
+                <tr>
+                    <td><%= libro.idLibro %></td>
+                    <td><%= libro.ISBN %></td>
+                    <td><%= libro.nombreAutor %></td>
+                    <td><%= libro.apellidosAutor %></td>
+                    <td><%= libro.edicion %></td>
+                    <td><%= libro.cantidadPaginas %></td>
+                    <td><%= libro.titulo %></td>
+                    <td><%= libro.ciudad %></td>
+                    <td><%= libro.editorial %></td>
+                    <td><%= libro.genero %></td>
+                    <td><%= libro.yearEdicion %></td>
+                    <td><%= libro.ADMINISTRADOR_idAdmin %></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </body>
+</html>
