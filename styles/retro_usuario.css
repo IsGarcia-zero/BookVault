@@ -1,0 +1,87 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(../src/Fondo_Oscuro.png);
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    width: 60%;
+    height: 60%;
+    border-radius: 40px;
+    background-color: #fff;
+}
+
+.text-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.divider_1 {
+    margin-top: 60px;
+    width: 2.5px;
+    height: 75%;
+    background-color: #000;
+}
+
+.form-section {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2 {
+    font-family: 'Cocogoose Pro Regular', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p {
+    font-family: 'Cocogoose Pro UltraLight', sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+textarea {
+    font-family: 'Cocogoose Pro UltraLight', sans-serif;
+    font-size: 18px;
+    flex: 1;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    resize: none;
+    border: none;
+    outline: none;
+    background-color: #00669948;
+}
+
+input[type="submit"] {
+    font-family: 'Cocogoose Pro Regular', sans-serif;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #0085CA;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #006699;
+}

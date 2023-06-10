@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(../src/Fondo.png);
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 40%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 0px rgb(0, 0, 0, 0.5);
+    cursor: pointer;
+    position: relative;
+}
+
+.icon-container {
+    width: 60px;
+    height: 60px;
+    background-color: #0085CA;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: absolute;
+    top: -30px;
+    left: 20px;
+}
+
+.icon-container img {
+    width: 30px;
+}
+
+h2 {
+    font-family: 'Cocogoose Pro Regular', sans-serif;
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 10px;
+    margin-left: 70px;
+}
+
+p {
+    font-family: 'Cocogoose Pro UltraLight', sans-serif;
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+    margin-left: 70px;
+}
