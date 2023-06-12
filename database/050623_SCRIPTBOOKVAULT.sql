@@ -124,6 +124,8 @@ VALUES ('9788435018927', 'Jane', 'Austen', 1, 400, 'Orgullo y prejuicio', 'Londr
 INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, ADMINISTRADOR_idAdmin)
 VALUES ('9788420472905', 'Arturo', 'Pérez-Reverte', 1, 536, 'El club Dumas', 'Madrid', 'Alfaguara', 'Misterio', 1993, 1);
 
+ALTER TABLE libros ADD pdf_url VARCHAR(255);
+
 
 -- -----------------------------------------------------
 -- Table `mydb`.`FAVORITO`

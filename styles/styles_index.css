@@ -4,7 +4,7 @@ body {
     font-family: Arial, sans-serif;
     padding-bottom: 3em;
     margin: 0;
-    background-image: url(./imagenes/background.jpg);
+    background-image: url(/background.jpg);
 
     min-height: 100vh;
 }
@@ -74,8 +74,8 @@ body {
   }
   
   .slider img {
-    width: 200px;
-    height: 300px;
+    width: 180px;
+    height: 250px;
     object-fit: cover;
     margin: 4    px;
     transition: transform 0.3s;

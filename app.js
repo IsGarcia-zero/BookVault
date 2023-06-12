@@ -8,5 +8,7 @@ app.listen(5000, ()=>{
 
 app.set('view engine', 'ejs');
 app.use('/', require('./router'));
+app.use(express.static('imagenes'));
+app.use(express.static('styles'));
 
 //PRUEBA DE COMMIT
