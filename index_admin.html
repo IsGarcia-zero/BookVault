@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./styles/navegacion.css">
-    <link rel="stylesheet" type="text/css" href="./styles/solicitud.css">
+    <link rel="stylesheet" type="text/css" href="./styles/admin.css">
     <title>BookVault</title>
 </head>
 <body>
@@ -30,21 +30,19 @@
         </div>
     </nav>
     <div class="container">
-        <div class="text-section">
-            <h2>Solicita tu libro aqui!!!</h2>
-            <p>Agrega los datos para añadirlo</p>
+        <div class="box" onclick="location.href='gestionarLibros.html'">
+            <div class="icon-container">
+                <img src="./src/Upload.png" alt="Gestionar Libros">
+            </div>
+            <h2>Gestionar Libros</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec diam risus.</p>
         </div>
-        <div class="divider_1"></div>
-        <div class="form-section">
-            <form action="" method="post">
-                <label for="title">Título:</label><br>
-                <input type="text" id="title" name="title"><br>
-                <label for="author">Autor:</label><br>
-                <input type="text" id="author" name="author"><br>
-                <label for="edition">Edición:</label><br>
-                <input type="text" id="edition" name="edition"><br>
-                <input type="submit" value="Enviar">
-            </form>
+        <div class="box" onclick="location.href='gestionarUsuarios.html'">
+            <div class="icon-container">
+                <img src="./src/Usuario.png" alt="Gestionar Usuarios">
+            </div>
+            <h2>Gestionar Usuarios</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec diam risus.</p>
         </div>
     </div>
     <script src="./scripts/nav.js"></script>
