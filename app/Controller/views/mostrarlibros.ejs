@@ -41,6 +41,7 @@
               <p>TITULO: <%= libro.titulo %></p>
               <p>AUTOR:<%= libro.nombreAutor %><%= libro.apellidosAutor %></p>
               <p>EDITORIAL: <%= libro.editorial %></p>
+              <p>URL : <a href='<%= libro.pdf_url %>'>libro</a></p>
             </div>
           <% } %> 
           <% }) %>
