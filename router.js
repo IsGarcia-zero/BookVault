@@ -26,6 +26,20 @@ router.get('/inicio', (req, res) => {
     });
 });
 
+router.use(express.json());
+
+router.post('/inicio', (req, res) => {
+  const consulta = req.body.consulta;
+  conexion.query("SELECT * FROM LIBRO WHERE nombreAutor LIKE '%{}%'".format(consulta), (error, resultados) => {
+    if (error) {
+      console.error('Error al ejecutar la consulta:', error);
+      res.status(500).json({ error: 'Error al ejecutar la consulta' });
+    } else {
+      res.json(resultados);
+    }
+  });
+});
+
 
 
 module.exports = router;
