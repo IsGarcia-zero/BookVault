@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/navegacion.css">
+    <link rel="stylesheet" type="text/css" href="./styles/solicitud.css">
+    <title>BookVault</title>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-section">
+            <div class="icon-menu" id="menu-icon">
+                <img class="menu-icon" src="./src/Menu.png" alt="Menu">
+            </div>
+            <div class="divider">
+                <img src="./src/Titulo.png" alt="Divider">
+            </div>
+            <div class="search-bar" id="search-bar">
+                <img class="search-icon" src="./src/Busqueda.png" alt="Search">
+                <input type="text" placeholder="Que vamos a buscar?">
+            </div>
+            <div class="icon-container_1" onclick="location.href=''">
+                <img src="./src/Retro.png" alt="Retroalimentacion">
+            </div>
+            <div class="icon-container_1" onclick="location.href=''">
+                <img src="./src/Usuario.png" alt="Usuario">
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="text-section">
+            <h2>Subir Libro </h2>
+            <p>Agrega los dats para agregarlo</p>
+        </div>
+        <div class="divider_1"></div>
+        <div class="form-section">
+            <form action="" method="post">
+                <label for="title">Título:</label><br>
+                <input type="text" id="title" name="title"><br>
+                <label for="author">Autor:</label><br>
+                <input type="text" id="author" name="author"><br>
+                <label for="edition">Edición:</label><br>
+                <input type="text" id="edition" name="edition"><br>
+                <input type="submit" value="Subir">
+            </form>
+        </div>
+    </div>
+    <script src="./scripts/nav.js"></script>
+</body>
+</html>
