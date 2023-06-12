@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     padding-bottom: 3em;
     margin: 0;
-    background-image: url(./imagenes/background.jpg);
+    background-image: url(../View/imagenes/background.jpg);
     color: #390f46; /* Cambia el color del texto a blanco */
     min-height: 100vh;
 }

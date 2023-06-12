@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const conexion = require('./database/db');
+const conexion = require('../Model/database/db');
 
 router.get('/inicio', (req, res) => {
     // Primera consulta

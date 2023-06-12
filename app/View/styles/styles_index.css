@@ -4,7 +4,7 @@ body {
     font-family: Arial, sans-serif;
     padding-bottom: 3em;
     margin: 0;
-    background-image: url(/background.jpg);
+    background-image: url(../imagenes/Fondo.png);
 
     min-height: 100vh;
 }
