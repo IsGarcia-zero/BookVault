@@ -75,7 +75,10 @@ body {
   background-color: #7495f1;
   padding: 10px;
   text-align: left;
+  
+
 }
+
 
 
 footer {
@@ -100,6 +103,7 @@ footer {
   text-align: left;
   color: whitesmoke;
 }
+
 
 @media (max-width: 768px) {
   .footer-item {
