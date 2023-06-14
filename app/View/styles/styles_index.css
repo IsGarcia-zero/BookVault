@@ -1,0 +1,101 @@
+/* Estilos generales */
+body {
+  
+    font-family: Arial, sans-serif;
+    padding-bottom: 3em;
+    margin: 0;
+    background-image: url(../imagenes/Fondo.png);
+
+    min-height: 100vh;
+}
+  
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    border: 1px solid #0021b3;
+    background-color: #4174c2;
+    color: #ffffff;
+    padding: 20px;
+  }
+  
+  
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  nav ul div.items {
+    flex: 2;
+    display: inline-flex;
+    padding: 0 25px;
+  }
+  nav ul div.items a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 18px;
+  }
+  nav ul li.logo{
+    flex: 1;
+    color:  #ffffff;
+    font-size: 30px;
+    font-weight: 700px;
+    font-family: sans-serif;
+    padding-left:none ;
+    float: left;
+    
+  }
+  nav ul div.BUSCADOR{
+    height: 40px;
+    width: 250px;
+    display: flex;
+    background-color: rgba(53, 117, 143, 0.2);
+    }
+  
+ 
+  .carrusel {
+    text-align: left;
+    padding: 90px;
+    color: #6229ff;
+  }
+  
+  .slider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .slider img {
+    width: 180px;
+    height: 250px;
+    object-fit: cover;
+    margin: 4    px;
+    transition: transform 0.3s;
+  }
+  
+  .slider img:hover {
+    transform: scale(1.1);
+  }
+  /**/
+  .slider .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .slider .image-container img {
+    margin-bottom: 10px;
+  }
+  
+  .slider .image-container p {
+    font-size: 14px;
+    color: #333;
+  }
