@@ -1,0 +1,162 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    
+}
+
+/*::-webkit-scrollbar {
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    box-shadow:0 0 5px 5px rgb(0, 0, 0, 5) inset;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(
+        45deg,
+        #00ffff,
+        #77ff00
+    ); 
+        
+} */
+.container {
+    display: flex;
+    justify-content: space-around;
+    width: 80;
+    max-width: 500px;
+    
+}
+
+
+.box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 20%;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    
+    box-shadow: 10px 10px 0px rgb(0, 0, 0, 1.2);
+    cursor: pointer;
+    position: fixed;
+    left:30px;
+    top:120px;
+    width:210px ;
+    height:390px
+    
+    
+
+}
+
+#segundo-box{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 20%;
+    padding: 50px;
+    background-color:#fff;
+    border-radius: 10px;
+    
+    box-shadow: 10px 10px 0px rgb(0, 0, 0, 1.2);
+    cursor: pointer;
+    position: fixed;
+    left:400px;
+    top:120px;
+    width:750px ;
+    height:390px;
+    
+    
+}
+
+.p {
+    font-family: 'Cocogoose Pro UltraLight', sans-serif;
+    font-size: 15px;
+    position: absolute;
+    width: 100px;
+    /*left:50px;*/
+    right: 100px;
+    color:#000;
+    text-align:justify;
+    margin-left: 70px;
+    border-radius: 5px;
+    
+    
+
+}
+
+.icon-container {
+    width: 50px;
+    height: 50px;
+    background-color: #0085CA;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: absolute;
+    top: -20px;
+    left: 40px;
+} 
+
+.form-section input[type="text"]{
+    font-family: 'Cocogoose Pro UltraLight', sans-serif;
+    font-size: 15px;
+    color: #000;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color:#0085CA;
+    position: fixed;
+    top:450px;
+    padding:35px ;
+    right: 1055px;
+}
+
+
+
+
+input[type="submit"] {
+    font-family: 'Cocogoose Pro Regular', sans-serif;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #0085CA;
+    color: #fff;
+    cursor: pointer;
+    position: fixed;
+    left: 250px;
+    top:560px;
+}
+input[type="submit"]:hover {
+    background-color: #006699;
+}
+
+ul{
+    list-style: none;
+    /*list-style-image: url(../imagenes/usuario.png)*/
+}
+
+li::before{
+    content: '';
+    display:inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url(../imagenes/usuario.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-right: 5px;
+}
+

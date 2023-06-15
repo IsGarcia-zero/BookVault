@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylesheets/navegacion.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/lector.css">
+    <title>BookVault</title>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-section">
+            <div class="icon-menu" id="menu-icon">
+                <img class="menu-icon" src="images/menu.png" alt="Menu">
+            </div>
+            <div class="divider">
+                <img src="images/Titulo.png" alt="Divider">
+            </div>
+            <div class="search-bar" id="search-bar">
+                <img class="search-icon" src="images/Busqueda.png" alt="Search">
+                <input type="text" placeholder="Que vamos a buscar?">
+            </div>
+            <div class="icon-container_1" onclick="location.href=''">
+                <img src="images/Retro.png" alt="Retroalimentacion">
+            </div>
+            <div class="icon-container_1" onclick="location.href=''">
+                <img src="images/usuario.png" alt="Usuario">
+            </div>
+        </div>
+    </nav>
+
+    <div id="lector-container">
+        <div id="lector-pdf">
+            <div id="page-container">
+                <canvas id="canvas-left"></canvas>
+                <canvas id="canvas-right"></canvas>
+            </div>
+        </div>
+        <div id="botones-paginas">
+            <div class="botones-container">
+                <img id="prev-btn" src="images/flecha_izquierda.png" alt="Anterior" disabled>
+                <div id="pagina-input-container">
+                    <input type="number" id="pagina-input" min="1" max="10" placeholder="pg.">
+                    <button id="ir-btn">Ir</button>
+                </div>
+                <img id="next-btn" src="images/flecha_derecha.png" alt="Siguiente" disabled>
+            </div>
+        </div>
+    </div>
+    
+    <script src="javascripts/nav.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+    <script src="javascripts/lector.js"></script>
+    </div>
+
+</body>
+
+</html>
