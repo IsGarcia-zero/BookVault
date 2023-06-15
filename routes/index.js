@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var connection = require('../database');
+var connection = require('../model/js/database');
 /* GET home page. */
 router.get('/', (req, res, next) => {
   res.render('login', { title: 'Express' });

@@ -28,7 +28,7 @@ Signup.addEventListener("submit", (e) => {
   console.log(signupEdad, signupEmail, signupPass, signupNombre)
 
   createUserWithEmailAndPassword(auth, signupEmail, signupPass).then(userCredential => {
-    window.location.assign('login')
+    window.location.assign('/')
   });
 
 })

@@ -29,7 +29,7 @@ SignIn.addEventListener("submit", (e) => {
         // Signed in
         const user = userCredential.user;
         alert("TU UID ES:"+user.uid);
-        window.location.assign('index')
+        window.location.assign('home')
         // ...
     })
     .catch((error) => {
