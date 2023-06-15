@@ -29,7 +29,7 @@ body {
     width: 300 px;
     margin: auto;
     padding: 20px;  
-    top : 120px;
+    top : 70px;
     left: 800px ;
 
  }
@@ -87,7 +87,7 @@ footer {
   background-color: #7495f1;
   padding: .5em 0;
   text-align: center;
-  width: 99%;
+  width: 100%;
 }
 
 .footer-container {
@@ -98,8 +98,8 @@ footer {
 }
 
 .footer-item {
-  flex-basis: 300px;
-  margin: 10px;
+  flex-basis: 250px;
+  margin: 7px;
   text-align: left;
   color: whitesmoke;
 }
@@ -110,3 +110,43 @@ footer {
     flex-basis: 100%;
   }
 }
+
+input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .containerSIGN {
+      position: absolute;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      top : 180px;
+      left: 280px ;
+      width: 500px;
+      float: left;
+      text-align: center;
+    }
