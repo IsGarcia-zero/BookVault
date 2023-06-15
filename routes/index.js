@@ -2,11 +2,36 @@ var express = require('express');
 var router = express.Router();
 var connection = require('../database');
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   res.render('login', { title: 'Express' });
 });
-router.get('/signup', function(req, res, next) {
+router.get('/signup', (req, res, next) =>{
   res.render('signup', { title: 'Express' });
+});
+router.get('/config', (req, res, next) =>{
+  res.render('indexAdmin', { title: 'Express' });
+});
+router.get('/bandeja', (req, res, next) =>{
+  res.render('bandejaEntrada', { title: 'Express' });
+});
+router.get('/busqueda', (req, res, next) =>{
+  res.render('busquedaNoUsuario', { title: 'Express' });
+});
+router.get('/favoritos', (req, res, next) =>{
+  res.render('favoritos', { title: 'Express' });
+});
+router.get('/lector', (req, res, next) =>{
+  res.render('lector', { title: 'Express' });
+});
+router.get('/retroalimentacion', (req, res, next) =>{
+  res.render('retroalimentacionUsuario', { title: 'Express' });
+});
+router.get('/solicitud', (req, res, next) =>{
+  res.render('solicitud_libros', { title: 'Express' });
+});
+
+router.get('/subirLibros', (req, res, next) =>{
+  res.render('subirLibrosAdmin', { title: 'Express' });
 });
 router.get('/home', function(req, res, next) {
   connection.query('SELECT * FROM LIBRO',(error, results1, fields)=>{

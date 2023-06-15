@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="stylesheets/navegacion.css">
-    <link rel="stylesheet" type="text/css" href="../View/styles/bandejaentrada.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/bandejaentrada.css">
 
     <title>BookVault</title>
 </head>
@@ -15,20 +15,21 @@
     <nav id="navbar">
         <div class="nav-section">
             <div class="icon-menu" id="menu-icon">
-                <img class="menu-icon" src="../View/imagenes/menu.png" alt="Menu">
+                <img class="menu-icon" src="images/menu.png" alt="Menu">
             </div>
             <div class="divider">
-                <img src="../View/imagenes/Titulo.png" alt="Divider">
+                <img src="images/Titulo.png" alt="Divider">
             </div>
             <div class="search-bar" id="search-bar">
-                <img class="search-icon" src="../View/imagenes/Busqueda.png" alt="Search">
-                <input type="text" placeholder="Que vamos a buscar?">
+                <img class="search-icon" src="images/Busqueda.png" alt="Search">
+                <input type="text" placeholder="Buscar " id="autocomplete_search" />
+                <span id="search_result"></span>
             </div>
             <div class="icon-container_1" onclick="location.href=''">
-                <img src="../View/imagenes/Retro.png" alt="Retroalimentacion">
+                <img src="images/Retro.png" alt="Retroalimentacion">
             </div>
             <div class="icon-container_1" onclick="location.href=''">
-                <img src="../View/imagenes/usuario.png" alt="Usuario">
+                <img src="images/usuario.png" alt="Usuario">
             </div>
         </div>
     </nav>
@@ -63,6 +64,7 @@
         
     
     
-    <script src="../View/src/nav.js"></script>
+    <script src="javascripts/nav.js"></script>
+    <script src="javascripts/buscador.js"></script>
 </body>
 </html>
