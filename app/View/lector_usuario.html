@@ -50,7 +50,44 @@
             </div>
         </div>
     </div>
+    <div>
+        <p>Agregar a tus libros favoritos</p>
+        <img id="corazon" class="corazon-favorito" src="../View/imagenes/corazon-azul.png" onclick="agregarFav()" width="50" height="50">
+        <script>
+        function agregarFav() {
+            var corazon = document.getElementById("corazon");
     
+         if (corazon.getAttribute("src") === "../View/imagenes/corazon-azul.png") {
+         corazon.setAttribute("src", "../View/imagenes/corazon-rojo.png");
+         fetch('/lector', {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json'
+          },
+        body: JSON.stringify({
+        nombreAutor: 'Nombre del autor',
+        fecha: 'Fecha actual',
+        tituloLibro: 'Título del libro',
+        usuarioId: 123, // ID del usuario actual
+        libroId: 456 // ID del libro actual
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Manejar la respuesta del servidor si es necesario
+    console.log(data);
+  })
+  .catch(error => {
+    // Manejar errores de la solicitud
+    console.error(error);
+  });
+         } else {
+          corazon.setAttribute("src", "../View/imagenes/corazon-azul.png");
+          }
+          }
+        </script>
+    </div>
+
     <script src="src/nav.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
@@ -187,7 +224,9 @@
         nextButton.addEventListener('click', onNextPage);
         irBtn.addEventListener('click', gotoPage);
         paginaInput.addEventListener('input', updateIrBtnStatus);
-    </script>
+
+  
+</script>
     </div>
 
 </body>
