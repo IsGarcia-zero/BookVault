@@ -57,7 +57,7 @@ router.post('/signup', (req, res) => {
           throw err;
         }
         // Guardar el usuario en la base de datos con la contraseña hasheada
-        connection.query('INSERT INTO usuarios (idUsuario, nombre, correo, contrasena, EDAD, tipo) VALUES (?, ? ,?, ?, ?, ?)', [idUsuario, nombres, email, hash, EDAD, tipo], (err, results, fields) => {
+        connection.query('INSERT INTO usuario (idUsuario, nombre, correo, contrasena, EDAD, tipo) VALUES (?, ? ,?, ?, ?, ?)', [idUsuario, nombres, email, hash, EDAD, tipo], (err, results, fields) => {
           if (err) {
             console.log(err);
             throw err;
@@ -79,7 +79,7 @@ router.get('/bandeja', requireLogin, (req, res, next) => {
 router.get('/busqueda', requireLogin, (req, res, next) => {
   res.render('busquedaNoUsuario', { title: 'Express' });
 });
-router.get('/prueba', requireLogin, (req, res, next) => {
+router.get('/prueba',(req, res, next) => {
   res.render('prueba', { title: 'Express' });
 });
 router.get('/favoritos', requireLogin, (req, res, next) => {
@@ -166,7 +166,7 @@ router.get('/eliminarlibro/:id',requireLogin, (req, res) => {
 });
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
-  connection.query('SELECT * FROM USUARIOS WHERE correo = ?', [email], (error, results, fields) => {
+  connection.query('SELECT * FROM USUARIO WHERE correo = ?', [email], (error, results, fields) => {
     if (error) {
       console.log(error);
       throw error;
