@@ -30,7 +30,7 @@ SignIn.addEventListener("submit", (e) => {
         const user = userCredential.user;
         alert("TU UID ES:"+user.uid);
         window.location.assign('home')
-        // ...
+        
     })
     .catch((error) => {
         const errorCode = error.code;
@@ -38,4 +38,4 @@ SignIn.addEventListener("submit", (e) => {
         alert(`Error ${errorCode}: ${errorMessage}`);
     });
     
-    })
+    });
