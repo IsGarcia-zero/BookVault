@@ -10,17 +10,18 @@
 <body>
   <div class="containerSIGN">
     <h1>Registro</h1>
-    <form id="signup-form">
-      <input type="text" id="nombre" placeholder="Nombre">
-      <input type="email" id="email" placeholder="Correo electrónico">
-      <input type="password" id="pass" placeholder="Contraseña">
-      <input type="EDAD" id="edad" placeholder="edad">
+    <form id="signup-form" method="post" action="signup">
+      <input type="text" name="nombres" placeholder="Nombre">
+      <input type="email" name="email" placeholder="Correo electrónico">
+      <input type="password" name="password" placeholder="Contraseña">
+      <input type="EDAD" name="EDAD" placeholder="edad">
       <input type="submit" value="Registrarse">
     </form>
   </div>
 
-  <!-- FIREBASE -->
+  <!-- FIREBASE 
   <script type="module" src="javascripts/signup.js"></script>
+  -->
 </body>
 
 </html>

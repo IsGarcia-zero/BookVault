@@ -12,11 +12,11 @@
     <h1>BookVault</h1>
     <P>¿Aún no tienes cuenta? <A HREF="signup">Regístrate </A> </P>
     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus nostrum nulla quos perspiciatis tempore, repellat enim optio reprehenderit tenetur, sed recusandae. Nulla ratione ut delectus laboriosam! Ex commodi facere voluptates.</p>
-    <form class = "form-login">    
+    <form class = "form-login" method="post" action="login">    
         <p>Correo electrónico: </p>
-      <input type="text" placeholder="Usuario" id="usuario">
+      <input type="text" placeholder="Usuario" name="email">
       <p>Password: </p>
-      <input type="password" placeholder="Contrasena" id="contrasena">
+      <input type="password" placeholder="Contrasena" name="password">
       <button type="submit">Iniciar sesion</button>
     </form>
   </div>
@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <script type = "module" src ="Javascripts/login.js" ></script>
+  <!--<script type = "module" src ="Javascripts/login.js" ></script>-->
 </footer>
 
 
