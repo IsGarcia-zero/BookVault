@@ -18,10 +18,10 @@ table {
     border-collapse: collapse;
     width: 50%;
     text-align: center;
-    margin-top: 100px;
-    margin-left: 200px;
-    margin-bottom: 200px;
-    margin-right: 100px;
+    margin-top: 10%;
+    margin-left: 15%;
+    margin-bottom: 15%;
+    margin-right: 10%;
 }
 
 th, td {

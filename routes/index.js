@@ -79,6 +79,9 @@ router.get('/bandeja', requireLogin, (req, res, next) => {
 router.get('/busqueda', requireLogin, (req, res, next) => {
   res.render('busquedaNoUsuario', { title: 'Express' });
 });
+router.get('/prueba', requireLogin, (req, res, next) => {
+  res.render('prueba', { title: 'Express' });
+});
 router.get('/favoritos', requireLogin, (req, res, next) => {
   res.render('favoritos', { title: 'Express' });
 });
@@ -123,7 +126,7 @@ router.get('/home', requireLogin, function (req, res, next) {
   //res.render('index', { title: 'Express' });
 });
 
-router.get('/gestionar', function(req, res, next) {
+router.get('/gestionar', requireLogin, function(req, res, next) {
   connection.query('SELECT * FROM LIBRO',(error, results1, fields)=>{
     if(error){
       console.log(error);
@@ -147,7 +150,7 @@ router.get('/getData', requireLogin, function (req, res, next) {
     }
   });
 });
-router.get('/eliminarlibro/:id', (req, res) => {
+router.get('/eliminarlibro/:id',requireLogin, (req, res) => {
   const id = req.params.id;
 
   // Aquí ejecuta tu consulta SQL para eliminar el libro con el libroId
