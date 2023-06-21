@@ -122,7 +122,6 @@ router.get('/home', requireLogin, function (req, res, next) {
   });
   //res.render('index', { title: 'Express' });
 });
-<<<<<<< HEAD
 
 router.get('/gestionar', function(req, res, next) {
   connection.query('SELECT * FROM LIBRO',(error, results1, fields)=>{
@@ -135,10 +134,8 @@ router.get('/gestionar', function(req, res, next) {
     }  
 })
 });
-router.get('/getData', function(req, res, next) {
-=======
+//router.get('/getData', function(req, res, next) {
 router.get('/getData', requireLogin, function (req, res, next) {
->>>>>>> c6b58aff7644f6d8fbdc841bee8dba664efa9a24
   let searchQuery = req.query.searchQuery;
   let query = `SELECT titulo FROM LIBRO WHERE titulo LIKE ? LIMIT 3`;
   connection.query(query, [`%${searchQuery}%`], (err, data) => {
@@ -149,6 +146,20 @@ router.get('/getData', requireLogin, function (req, res, next) {
       res.json(data);
     }
   });
+});
+router.get('/eliminarlibro/:id', (req, res) => {
+  const id = req.params.id;
+
+  // Aquí ejecuta tu consulta SQL para eliminar el libro con el libroId
+  connection.query('DELETE FROM LIBRO WHERE idLibro = ?', [id], (error,results) => {
+    if (error) {
+      console.log(error);
+      throw error;
+    } else {
+      console.log('Libro eliminado correctamente');
+      res.redirect('/gestionar'); // Redirecciona al usuario a la página de gestión después de eliminar el libro
+    }
+  })
 });
 router.post("/login", (req, res) => {
   const { email, password } = req.body;

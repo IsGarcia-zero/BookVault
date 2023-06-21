@@ -2,30 +2,71 @@
 <html>
     <head>
         <title>GESTIONAR LIBROS</title>
-        <link rel="stylesheet" type="text/css" href="../public/stylesheets/navegacion.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/admin.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/navegacion.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/admin.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/gestionLibros.css">
     </head>
     <body>
+        <div id="container">
         <nav id="navbar">
             <div class="nav-section">
                 <div class="icon-menu" id="menu-icon">           
-                    <img class="menu-icon" src="../public/images/menu.png" alt="Menu">       
+                    <img class="menu-icon" src="images/menu.png" alt="Menu">       
                 </div>
                 <div class="divider">
-                    <img src="../public/images/Titulo.png" alt="Divider">
+                    <img src="images/Titulo.png" alt="Divider">
                 </div>
                 <div class="search-bar" id="search-bar">
-                    <img class="search-icon" src="../public/images/Busqueda.png" alt="Search">
+                    <img class="search-icon" src="images/Busqueda.png" alt="Search">
                     <input type="text" placeholder="Que vamos a buscar?">
                 </div>
                 <div class="icon-container_1" onclick="location.href=''">
-                    <img src="../public/images/Retro.png" alt="Retroalimentacion">
+                    <img src="images/Retro.png" alt="Retroalimentacion">
                 </div>
                 <div class="icon-container_1" onclick="location.href=''">
-                    <img src="../public/images/usuario.png" alt="Usuario">
+                    <img src="images/usuario.png" alt="Usuario">
                 </div>
             </div>
         </nav>
+<div id="table-container">
+<table>
+    <thead>
+        <tr>
+            <th>ID LIBRO</th>>
+            <th>ISBN</th>>
+            <th>NOMBRE DEL AUTOR</th>>
+            <th>EDICION</th>>
+            <th>PAGINAS</th>>
+            <th>TITULO</th>>
+            <th>CIUDAD</th>>
+            <th>EDITORIAL</th>>
+            <th>GENERO</th>>
+            <th></th>>
+        </tr>
+    </thead>
+    <tbody>
+        <% results1.forEach((libro)=> { %>
+            <tr>
+                <td><%= libro.idLibro %></td>
+                <td><%= libro.ISBN %></td>
+                <td><%= libro.nombreAutor %>&nbsp;<%= libro.apellidosAutor %></td>
+                <td><%= libro.edicion %></td>
+                <td><%= libro.cantidadPaginas %></td>
+                <td><%= libro.titulo %></td>
+                <td><%= libro.ciudad %></td>
+                <td><%= libro.editorial %></td>
+                <td><%= libro.genero%></td>
+                <td>
+                    <a href="/eliminarlibro/<%= libro.idLibro %>" class="btn">ELIMINAR</a>
+                </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+
+    </table>
+</div>
+</div>
         
 
     </body>
