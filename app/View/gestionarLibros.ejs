@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GESTIONAR LIBROS</title>
+        <link rel="stylesheet" type="text/css" href="../View/styles/navegacion.css">
+    <link rel="stylesheet" type="text/css" href="../View/styles/admin.css">
+    </head>
+    <body>
+        <nav id="navbar">
+            <div class="nav-section">
+                <div class="icon-menu" id="menu-icon">           
+                    <img class="menu-icon" src="../View/imagenes/menu.png" alt="Menu">       
+                </div>
+                <div class="divider">
+                    <img src="../View/imagenes/Titulo.png" alt="Divider">
+                </div>
+                <div class="search-bar" id="search-bar">
+                    <img class="search-icon" src="../View/imagenes/Busqueda.png" alt="Search">
+                    <input type="text" placeholder="Que vamos a buscar?">
+                </div>
+                <div class="icon-container_1" onclick="location.href=''">
+                    <img src="../View/imagenes/Retro.png" alt="Retroalimentacion">
+                </div>
+                <div class="icon-container_1" onclick="location.href=''">
+                    <img src="../View/imagenes/usuario.png" alt="Usuario">
+                </div>
+            </div>
+        </nav>
+        <tr>
+            <td>ID LIBRO</td>
+            <td>ISBN</td>
+            <td>NOMBRE DEL AUTOR</td>
+            <td>EDICION</td>
+            <td>PAGINAS</td>
+            <td>TITULO</td>
+            <td>CIUDAD</td>
+            <td>EDITORIAL</td>
+            <td>GENERO</td>
+        </tr>
+        <% results1.forEach((libro)=> { %>
+            <tr>
+                <td><%= libro.idLibro %></td>
+                <td><%= libro.ISBN %></td>
+                <td><%= libro.nombreAutor %>&nbsp;<%= libro.apellidosAutor %></td>
+                <td><%= libro.edicion %></td>
+                <td><%= libro.cantidadPaginas %></td>
+                <td><%= libro.titulo %></td>
+                <td><%= libro.ciudad %></td>
+                <td><%= libro.editorial %></td>
+                <td><%= libro.genero%></td>
+            </tr>
+        <% }) %>
+
+    </body>
+</html>
