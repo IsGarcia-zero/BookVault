@@ -60,6 +60,18 @@ router.get('/home', function(req, res, next) {
   });
   //res.render('index', { title: 'Express' });
 });
+
+router.get('/gestionar', function(req, res, next) {
+  connection.query('SELECT * FROM LIBRO',(error, results1, fields)=>{
+    if(error){
+      console.log(error);
+      throw error;
+    }else{
+      console.log(results1);
+      res.render('gestionarLibros', { title: 'Express', results1: results1});
+    }  
+})
+});
 router.get('/getData', function(req, res, next) {
   let searchQuery = req.query.searchQuery;
   let query = `SELECT titulo FROM LIBRO WHERE titulo LIKE ? LIMIT 3`;
