@@ -2,6 +2,7 @@ var express = require('express');
 const uuid = require('uuid');
 var router = express.Router();
 const bcrypt = require('bcrypt');
+const multer = require('multer');
 const saltRounds = 10;
 var connection = require('../model/js/database');
 
@@ -14,9 +15,27 @@ function requireLogin(req, res, next) {
     res.redirect('/');
   }
 }
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/bucket'); // Directorio donde se guardarán los archivos subidos
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const fileExtension = file.originalname.split('.').pop();
+    cb(null, file.fieldname + '-' + uniqueSuffix + '.' + fileExtension);
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 50 * 1024 * 1024, // Tamaño máximo del archivo en bytes (en este caso, 5MB)
+  },
+});
 router.get('/', (req, res, next) => {
   res.render('login', { title: 'Express' });
-  
+
 });
 router.get('/signup', (req, res, next) => {
   res.render('signup', { title: 'Express' });
@@ -34,7 +53,7 @@ router.post('/signup', (req, res) => {
     }
     if (results.length > 0) {
       // El usuario ya existe, puedes mostrar un mensaje de error o redirigir a una página de error
-    
+
       return res.render('signup', { title: 'Signup', error: 'El usuario ya existe' });
     } else {
       // El usuario no existe, podemos continuar con el registro
@@ -42,12 +61,12 @@ router.post('/signup', (req, res) => {
       if (EDAD < 18) {
         return res.render('signup', { title: 'Signup', error: 'No puedes registrarte, eres menor de edad' });
       }
-      if(password.length < 8){
-        
+      if (password.length < 8) {
+
         return res.render('signup', { title: 'Signup', error: 'La contraseña debe tener al menos 8 caracteres' });
       }
       if (!emailRegex.test(email)) {
-        
+
         return res.render('signup', { title: 'Signup', error: 'El correo no es valido' });
       }
       bcrypt.hash(password, saltRounds, (err, hash) => {
@@ -73,13 +92,38 @@ router.post('/signup', (req, res) => {
 router.get('/config', requireLogin, (req, res, next) => {// Es pantalla del administrador
   res.render('indexAdmin', { title: 'Express' });
 });
+router.post('/subirLibros', upload.fields([{ name: 'pdfFile', maxCount: 1 }, { name: 'imageFile', maxCount: 1 }]), (req, res) => {
+  // Obtener los datos del formulario y los archivos subidos
+  const { ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion } = req.body;
+  const pdfFile = req.files['pdfFile'][0];
+  const imageFile = req.files['imageFile'][0];
+
+  // Construir la consulta SQL para insertar el libro en la base de datos
+  const insertQuery = `INSERT INTO LIBRO (ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, pdf_url, img_libro)
+                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  const values = [ISBN, nombreAutor, apellidosAutor, edicion, cantidadPaginas, titulo, ciudad, editorial, genero, yearEdicion, pdfFile.filename, imageFile.filename];
+  console.log(values);
+  // Ejecutar la consulta SQL para insertar el libro en la base de datos
+  connection.query(insertQuery, values, (error, results) => {
+    if (error) {
+      console.error('Error al insertar el libro:', error, values, results);
+      // Manejar el error y enviar una respuesta de error al cliente
+      return res.status(500).json({ error: 'Error al subir el libro' });
+    }
+
+    // El libro se insertó correctamente en la base de datos
+    console.log('Libro subido correctamente');
+    // Enviar una respuesta exitosa al cliente
+    return res.redirect('/config');
+  });
+});
 router.get('/bandeja', requireLogin, (req, res, next) => {
   res.render('bandejaEntrada', { title: 'Express' });
 });
 router.get('/busqueda', requireLogin, (req, res, next) => {
   res.render('busquedaNoUsuario', { title: 'Express' });
 });
-router.get('/prueba',(req, res, next) => {
+router.get('/prueba', (req, res, next) => {
   res.render('prueba', { title: 'Express' });
 });
 router.get('/favoritos', requireLogin, (req, res, next) => {
@@ -129,16 +173,16 @@ router.get('/home', requireLogin, function (req, res, next) {
   //res.render('index', { title: 'Express' });
 });
 
-router.get('/gestionar', requireLogin, function(req, res, next) {//Admin
-  connection.query('SELECT * FROM LIBRO',(error, results1, fields)=>{
-    if(error){
+router.get('/gestionar', requireLogin, function (req, res, next) {//Admin
+  connection.query('SELECT * FROM LIBRO', (error, results1, fields) => {
+    if (error) {
       console.log(error);
       throw error;
-    }else{
+    } else {
       console.log(results1);
-      res.render('gestionarLibros', { title: 'Express', results1: results1});
-    }  
-})
+      res.render('gestionarLibros', { title: 'Express', results1: results1 });
+    }
+  })
 });
 //router.get('/getData', function(req, res, next) {
 router.get('/getData', requireLogin, function (req, res, next) {
@@ -153,11 +197,11 @@ router.get('/getData', requireLogin, function (req, res, next) {
     }
   });
 });
-router.get('/eliminarlibro/:id',requireLogin, (req, res) => {//Admin
+router.get('/eliminarlibro/:id', requireLogin, (req, res) => {//Admin
   const id = req.params.id;
 
   // Aquí ejecuta tu consulta SQL para eliminar el libro con el libroId
-  connection.query('DELETE FROM LIBRO WHERE idLibro = ?', [id], (error,results) => {
+  connection.query('DELETE FROM LIBRO WHERE idLibro = ?', [id], (error, results) => {
     if (error) {
       console.log(error);
       throw error;

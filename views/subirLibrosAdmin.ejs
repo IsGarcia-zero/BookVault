@@ -28,32 +28,39 @@
                 <img src="images/Retro.png" alt="Retroalimentacion">
             </div>
             <div class="icon-container_1" onclick="location.href='index'">
-                <img src="images/imagenes/usuario.png" alt="Usuario">
+                <img src="images/usuario.png" alt="Usuario">
             </div>
         </div>
     </nav>
     <div class="container">
         <div class="text-section">
-            <h2>Subir Libro </h2>
-          
-           
-
-            	
-<p style="text-align:center;"><input type ="image" src ="images/Boton_plus.png" width="65" height="60"></p>
-            
-           
-            <p>Agrega los datos para añadirlo</p>
-        </div>
-        <div class="divider_1"></div>
-        <div class="form-section">
-            <form action="" method="post">
-                <label for="title">Título:</label><br>
-                <input type="text" id="title" name="title"><br>
-                <label for="author">Autor:</label><br>
-                <input type="text" id="author" name="author"><br>
-                <label for="edition">Edición:</label><br>
-                <input type="text" id="edition" name="edition"><br>
-                <input type="submit" value="Subir">
+            <h2>Subir Libro</h2>
+            <form action="/subirLibros" method="post" enctype="multipart/form-data">
+                <label for="ISBN">ISBN:</label><br>
+                <input type="text" id="ISBN" name="ISBN" required><br>
+                <label for="nombreAutor">Nombre del Autor:</label><br>
+                <input type="text" id="nombreAutor" name="nombreAutor" required><br>
+                <label for="apellidosAutor">Apellidos del Autor:</label><br>
+                <input type="text" id="apellidosAutor" name="apellidosAutor" required><br>
+                <label for="edicion">Edición:</label><br>
+                <input type="text" id="edicion" name="edicion" required><br>
+                <label for="cantidadPaginas">Cantidad de Páginas:</label><br>
+                <input type="number" id="cantidadPaginas" name="cantidadPaginas" required><br>
+                <label for="titulo">Título:</label><br>
+                <input type="text" id="titulo" name="titulo" required><br>
+                <label for="ciudad">Ciudad:</label><br>
+                <input type="text" id="ciudad" name="ciudad" required><br>
+                <label for="editorial">Editorial:</label><br>
+                <input type="text" id="editorial" name="editorial" required><br>
+                <label for="genero">Género:</label><br>
+                <input type="text" id="genero" name="genero"><br>
+                <label for="yearEdicion">Año de Edición:</label><br>
+                <input type="number" id="yearEdicion" name="yearEdicion" required><br>
+                <label for="pdfFile">Archivo PDF:</label><br>
+                <input type="file" id="pdfFile" name="pdfFile" accept=".pdf" required><br>
+                <label for="imageFile">Imagen del Libro:</label><br>
+                <input type="file" id="imageFile" name="imageFile" accept=".jpg, .jpeg, .png" required><br>
+                <input type="submit" value="Subir Libro">
             </form>
         </div>
     </div>
