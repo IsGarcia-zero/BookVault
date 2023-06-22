@@ -62,7 +62,7 @@ router.get('/signup', (req, res, next) => {
 });
 router.post('/signup', (req, res) => {
   const { nombres, email, password, EDAD } = req.body;
-  const tipo = "admin";
+  const tipo = "usuario";
   const idUsuario = uuid.v4();
   const emailRegex = /^[A-Za-z0-9._%+-]+@(alumno\.ipn\.mx|ipn\.mx)$/;
   // Verificar si el usuario ya existe en la base de datos
