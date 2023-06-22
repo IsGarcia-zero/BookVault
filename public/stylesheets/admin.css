@@ -7,6 +7,12 @@ body {
     background-image: url(../images/Fondo.png);
     background-size: cover;
 }
+header {
+    border: 1px solid #0021b3;
+    background-color: #4174c2;
+    color: #ffffff;
+    padding: 20px;
+  }
 
 .container {
     display: flex;

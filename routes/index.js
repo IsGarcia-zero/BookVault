@@ -88,6 +88,9 @@ router.get('/favoritos', requireLogin, (req, res, next) => {
 router.get('/lector', requireLogin, (req, res, next) => {
   res.render('lector', { title: 'Express' });
 });
+router.get('/sugerencias', requireLogin, (req, res, next) => {
+  res.render('verSugerencias', { title: 'Express' });
+});
 router.get('/retroalimentacion', requireLogin, (req, res, next) => {
   res.render('retroalimentacionUsuario', { title: 'Express' });
 });
