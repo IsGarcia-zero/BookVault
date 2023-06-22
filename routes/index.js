@@ -117,6 +117,29 @@ router.post('/subirLibros', upload.fields([{ name: 'pdfFile', maxCount: 1 }, { n
     return res.redirect('/config');
   });
 });
+router.get('/obtenerLibroPorNombre', requireLogin, (req, res) => {
+  const fileName = req.query.file; // Obtener el nombre del archivo del query string
+
+  // Construir la consulta SQL para obtener el libro por nombre de archivo
+  const query = `SELECT * FROM LIBRO WHERE pdf_url = ?`;
+  connection.query(query, [fileName], (error, results) => {
+    if (error) {
+      console.error('Error al obtener el libro por nombre de archivo:', error);
+      return res.status(500).json({ error: 'Error al obtener el libro' });
+    }
+
+    if (results.length === 0) {
+      // El libro no existe, puedes manejarlo de acuerdo a tus necesidades
+      return res.status(404).json({ error: 'El libro no existe' });
+    }
+
+    const libro = results[0]; // Obtener el primer libro encontrado
+
+    // Enviar los detalles del libro como respuesta
+    res.json(libro);
+  });
+});
+
 router.get('/bandeja', requireLogin, (req, res, next) => {
   res.render('bandejaEntrada', { title: 'Express' });
 });

@@ -122,9 +122,10 @@ let pdfDoc = null,
                 nextButton.disabled = false;
             });
         }
-
+        const urlParams = new URLSearchParams(window.location.search);
+        const nombreArchivo = urlParams.get('file');
         // Aqui se especifica el archivo a leer
-        initLectorPDF('../bucket/SEGUNDO MILESTONE.pdf');
+        initLectorPDF('bucket/'+nombreArchivo);
 
         prevButton.addEventListener('click', onPrevPage);
         nextButton.addEventListener('click', onNextPage);
