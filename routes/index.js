@@ -53,7 +53,7 @@ router.get('/signup', (req, res, next) => {
 });
 router.post('/signup', (req, res) => {
   const { nombres, email, password, EDAD } = req.body;
-  const tipo = "usuario";
+  const tipo = "admin";
   const idUsuario = uuid.v4();
   const emailRegex = /^[A-Za-z0-9._%+-]+@(alumno\.ipn\.mx|ipn\.mx)$/;
   // Verificar si el usuario ya existe en la base de datos
@@ -156,9 +156,6 @@ router.get('/bandeja', requireLogin, (req, res, next) => {
 });
 router.get('/busqueda', requireLogin, (req, res, next) => {
   res.render('busquedaNoUsuario', { title: 'Express' });
-});
-router.get('/prueba', (req, res, next) => {
-  res.render('prueba', { title: 'Express' });
 });
 router.get('/favoritos', requireLogin, (req, res, next) => {
   res.render('favoritos', { title: 'Express' });

@@ -7,32 +7,51 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/navegacion.css">
     <!--<link rel="stylesheet" type="text/css" href="../View/styles/solicitud.css"> -->
     <link rel="stylesheet" type="text/css" href="stylesheets/subirlibrosadmin.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/burger.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/styles_index.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/admin.css">
 
     <title>BookVault</title>
 </head>
 <body>
-    <nav id="navbar">
-        <div class="nav-section">
-            <div class="icon-menu" id="menu-icon">
-                <img class="menu-icon" src="images/menu.png" alt="Menu">
+    <header class=" header">
+        <div class = "container "> 
+            <div class = "btn-menu">
+                <label for="btn-menu" class=""> <img class="menu-icon" src="images/menu.png" width="30px" height="30px" alt="Menu"></label>
             </div>
-            <div class="divider">
-                <img src="images/Titulo.png" alt="Divider">
-            </div>
-            <div class="search-bar" id="search-bar">
-                <img class="search-icon" src="images/Busqueda.png" alt="Search">
-                <input type="text" placeholder="Buscar " id="autocomplete_search" />
-                <span id="search_result"></span>
-            </div>
-            <div class="icon-container_1" onclick="location.href='retroalimentacionUsuarios'">
-                <img src="images/Retro.png" alt="Retroalimentacion">
-            </div>
-            <div class="icon-container_1" onclick="location.href='index'">
-                <img src="images/usuario.png" alt="Usuario">
-            </div>
+
         </div>
-    </nav>
-    <div class="container">
+    </header>
+    <input type="checkbox" id = "btn-menu">
+    
+    <div class="container-menu">
+        <div class="cont-menu">
+            <nav>
+                <a href="#">
+                    <img class="search-icon" src="images/Busqueda.png" width="20px" height="20px" alt="Search">
+                    <input type="text" placeholder="Que vamos a buscar?">
+                </a>
+                
+                <a href="#">
+                    <img class="search-icon" src="images/Libro.png" width="30px" height="30px" alt="Search">
+                    Gestionar Libros
+                </a>
+                <br>
+                <a href="#">
+                    <img class="search-icon" src="images/corazon.png" width="30px" height="30px" alt="Search">
+                    Ver Sugerencias
+                </a>
+                <br>
+                <a id="rojito" href="#">  
+                    <img class="search-icon" src="images/salir.png" width="30px" height="30px" alt="Search">
+                    Cerrar sesión
+                </a>
+            </nav>
+            <label for="btn-menu" class="icono-equis"> <img src="images/menu.png" style="transform:rotate(90deg)"; width="25px" height="30px" alt="menu" /></label>
+            <p id="img-letra">BookVault</p>
+        </div>
+    </div>
+    <div class="containerrr">
         <div class="text-section">
             <h2>Subir Libro</h2>
             <form action="/subirLibros" method="post" enctype="multipart/form-data">

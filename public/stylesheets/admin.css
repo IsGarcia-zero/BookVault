@@ -1,23 +1,11 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-image: url(../images/Fondo.png);
-    background-size: cover;
-}
-header {
-    border: 1px solid #0021b3;
-    background-color: #4174c2;
-    color: #ffffff;
-    padding: 20px;
-  }
-
-.container {
+.containerr {
+    position: absolute;
     display: flex;
     justify-content: space-around;
     width: 80%;
+    padding:50px;
+    top:100px;
+    left:120px;
 }
 
 .box {
@@ -34,7 +22,7 @@ header {
     position: relative;
 }
 
-.icon-container {
+.icon-containerr {
     width: 60px;
     height: 60px;
     background-color: #0085CA;
@@ -49,7 +37,7 @@ header {
     left: 20px;
 }
 
-.icon-container img {
+.icon-containerr img {
     width: 30px;
 }
 

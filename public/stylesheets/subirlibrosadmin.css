@@ -9,7 +9,7 @@ body {
     
 }
 
-.container {
+.containerrr {
     display: flex;
     width: 50%;
     height: 60%;
@@ -37,18 +37,7 @@ body {
     flex-direction: column;
     justify-content: center;
 }
-h2 {
-    font-family: 'Cocogoose Pro Regular', sans-serif;
-    font-size: 24px;
-    margin-bottom: 10px;
-    text-align: center;
-}
 
-p {
-    font-family: 'Cocogoose Pro UltraLight', sans-serif;
-    font-size: 18px;
-    text-align: center;
-}
 form {
     display: flex;
     flex-direction: column;

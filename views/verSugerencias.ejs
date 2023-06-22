@@ -2,40 +2,58 @@
 <html>
     <head>
         <title>VER SUGERENCIAS</title>
+        <link rel="stylesheet" type="text/css" href="stylesheets/burger.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/styles_index.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/navegacion.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/admin.css">
-    <link rel="stylesheet" type="text/css" href="stylesheets/gestionLibros.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/gestionSugerencia.css">
     </head>
     <body>
-        <div id="container">
-        <nav id="navbar">
-            <div class="nav-section">
-                <div class="icon-menu" id="menu-icon">           
-                    <img class="menu-icon" src="images/menu.png" alt="Menu">       
+        <header class=" header">
+            <div class = "container "> 
+                <div class = "btn-menu">
+                    <label for="btn-menu" class=""> <img class="menu-icon" src="images/menu.png" width="30px" height="30px" alt="Menu"></label>
                 </div>
-                <div class="divider">
-                    <img src="images/Titulo.png" alt="Divider">
-                </div>
-                <div class="search-bar" id="search-bar">
-                    <img class="search-icon" src="images/Busqueda.png" alt="Search">
-                    <input type="text" placeholder="Que vamos a buscar?">
-                </div>
-                <div class="icon-container_1" onclick="location.href=''">
-                    <img src="images/Retro.png" alt="Retroalimentacion">
-                </div>
-                <div class="icon-container_1" onclick="location.href=''">
-                    <img src="images/usuario.png" alt="Usuario">
-                </div>
+    
             </div>
-        </nav>
+        </header>
+        <input type="checkbox" id = "btn-menu">
+        
+        <div class="container-menu">
+            <div class="cont-menu">
+                <nav>
+                    <a href="#">
+                        <img class="search-icon" src="images/Busqueda.png" width="20px" height="20px" alt="Search">
+                        <input type="text" placeholder="Que vamos a buscar?">
+                    </a>
+                    
+                    <a href="gestionar">
+                        <img class="search-icon" src="images/Libro.png" width="30px" height="30px" alt="Search">
+                        Gestionar Libros
+                    </a>
+                    <br>
+                    <a href="sugerencias">
+                        <img class="search-icon" src="images/corazon.png" width="30px" height="30px" alt="Search">
+                        Ver Sugerencias
+                    </a>
+                    <br>
+                    <a id="rojito" href="#">  
+                        <img class="search-icon" src="images/salir.png" width="30px" height="30px" alt="Search">
+                        Cerrar sesión
+                    </a>
+                </nav>
+                <label for="btn-menu" class="icono-equis"> <img src="images/menu.png" style="transform:rotate(90deg)"; width="25px" height="30px" alt="menu" /></label>
+                <p id="img-letra">BookVault</p>
+            </div>
+        </div>
 
 
 <div id="table-container">
 <table>
     <thead>
         <tr>
-            <th>TITULO DEL LIBRO</th>>
-            <th>AUTOR DEL LIBRO</th>>
+            <th>TITULO DEL LIBRO</th>
+            <th>AUTOR DEL LIBRO</th>
             <th>EDICION DEL LIBRO</th>
             <th>ACCIONES</th>
         </tr>
@@ -43,11 +61,11 @@
     <tbody>
         <% results1.forEach((sug)=> { %>
             <tr>
-                <td><%= sug.idSug %></td>
+                <td><%= sug.tituloSug %></td>
                 <td><%= sug.autorSug %></td>
                 <td><%= sug.edicionSug %></td>
                 <td>
-                    <a href="/eliminarlibro/<%= libro.idLibro %>" class="btn">ELIMINAR</a>
+                    <a href="subirLibros" class="btn">CREAR LIBRO</a>
                 </form>
                 </td>
             </tr>
