@@ -1,3 +1,22 @@
+
+function favorito() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const idArchivo = urlParams.get('id');
+    fetch('/favoritos/verificar/' + idArchivo)
+    .then(response => response.json())
+    .then(data => {
+        if (data.existeFavorito) {
+            // Si existe un favorito en la base de datos, establece el color del corazón en rojo
+            document.getElementById("corazon").setAttribute("src", "images/corazon-rojo.png");
+        } else {
+            // Si no existe un favorito en la base de datos, establece el color del corazón en azul
+            document.getElementById("corazon").setAttribute("src", "images/corazon-azul.png");
+        }
+    })
+    .catch(error => {
+        console.error('Error al verificar el estado del libro favorito:', error);
+    });
+}
 function obtenerDatosLibro() {
     // Obtén el ID del libro o cualquier otro identificador necesario
     const urlParams = new URLSearchParams(window.location.search);

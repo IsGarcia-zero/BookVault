@@ -34,38 +34,17 @@
         </div>
     </nav>
     <section id="Favoritos">
-        <div class="acc">
-        <h2>Tus libros favoritos</h2>
-     
-            <img src="images/accesibilidad.png" alt="Accesibilidad">
-        </div>
-            <div class="slider">
+        <div class="slider">
+            <% results1.forEach((libro)=> { %>
                 <div class="image-container">
-                    <img src="images/mataraunruiseñor.jpg" alt="Imagen 1">
-                    <img class="corazon" src="images/corazon.png" alt="Corazon">
-                    <p>Titulo 1</p>
+                    <img src="bucket/<%=libro.img_libro %>" alt="Imagen 1">
+                    <p>DESCRIPCION:</p>
+                    <p>TITULO: <%= libro.tituloLibro %></p>
+                    <p>AUTOR:<%= libro.nombreAutor %><%= libro.apellidosAutor %></p>
+                    <p>URL: <a href='lector?file=<%= libro.pdf_url %>&id=<%= libro.idFavorito %>'>libro</a></p>
                 </div>
-                <div class="image-container">
-                    <img src="images/lossantosinocentes.jpg" alt="Imagen 2">
-                    <img class="corazon" src="images/corazon.png" alt="Corazon">
-                    <p>Titulo 2</p>
-                </div>
-                <div class="image-container">
-                    <img src="images/imagen8.jpg" alt="Imagen 2">
-                    <img class="corazon" src="images/corazon.png" alt="Corazon">
-                    <p>Titulo 3</p>
-                </div>
-                <div class="image-container">
-                    <img src="images/imagen7.jpeg" alt="Imagen 2">
-                    <img class="corazon" src="images/corazon.png" alt="Corazon">
-                    <p>Titulo 4</p>
-                </div>
-                <div class="image-container">
-                    <img src="images/imagen9.jpg" alt="Imagen 2">
-                    <img class="corazon" src="images/corazon.png" alt="Corazon">
-                    <p>Titulo 5</p>
-                </div>
-                </div>
+            <% }) %>
+            </div>
           </section>
     </section>
 </body>

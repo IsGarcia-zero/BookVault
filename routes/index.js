@@ -158,21 +158,32 @@ router.get('/busqueda', requireLogin, (req, res, next) => {
   res.render('busquedaNoUsuario', { title: 'Express' });
 });
 router.get('/favoritos', requireLogin, (req, res, next) => {
-  res.render('favoritos', { title: 'Express' });
+  connection.query('SELECT * FROM FAVORITO', (error, results1, fields) => {
+    if (error) {
+      console.log(error);
+      throw error;
+    } else {
+      console.log(results1);
+
+      res.render('favoritos', { title: 'Express', results1: results1 });
+
+    }
+  });
+  //res.render('favoritos', { title: 'Express' });
 });
 router.get('/lector', requireLogin, (req, res, next) => {
   res.render('lector', { title: 'Express' });
 });
 router.get('/sugerencias', requireLogin, (req, res, next) => {
-  connection.query('SELECT * FROM SUGERENCIA',(error, results1, fields)=>{
-    if(error){
+  connection.query('SELECT * FROM SUGERENCIA', (error, results1, fields) => {
+    if (error) {
       console.log(error);
       throw error;
-    }else{
+    } else {
       console.log(results1);
-      res.render('verSugerencias', { title: 'Express', results1:results1});
-    }  
-})
+      res.render('verSugerencias', { title: 'Express', results1: results1 });
+    }
+  })
 });
 router.get('/retroalimentacion', requireLogin, (req, res, next) => {
   res.render('retroalimentacionUsuario', { title: 'Express' });
@@ -269,7 +280,7 @@ router.post("/login", (req, res) => {
             req.session.user = {
               idUsuario: results[0].idUsuario,
               email: results[0].correo,
-              tipo: results[0].tipo,    
+              tipo: results[0].tipo,
             };
 
             if (results[0].tipo === "admin") {
@@ -293,7 +304,7 @@ router.post('/favoritos/agregar', requireLogin, (req, res) => {
   const { titulo } = req.body;
   const { pdf_url } = req.body;
   const { img_libro } = req.body;
-  const  user  = req.session.user.idUsuario;
+  const user = req.session.user.idUsuario;
   console.log(req.body)
   // Verificar si el libro ya está en la lista de favoritos del usuario
   connection.query('SELECT * FROM Favorito WHERE idUsuario = ? AND idFavorito = ?', [user, idArchivo], (error, results, fields) => {
@@ -321,7 +332,7 @@ router.post('/favoritos/agregar', requireLogin, (req, res) => {
 });
 router.delete('/favoritos/:idArchivo', (req, res) => {
   const idArchivo = req.params.idArchivo;
-  
+
   connection.query('DELETE FROM favorito WHERE idFavorito = ?', [idArchivo], (error, result) => {
     if (error) {
       // Manejar errores de la base de datos
@@ -334,8 +345,26 @@ router.delete('/favoritos/:idArchivo', (req, res) => {
       // No se encontró ningún libro con el idArchivo especificado, devolver un mensaje de error
       return res.status(404).json({ mensaje: 'El libro no está en la lista de favoritos' });
     }
-  res.json({ mensaje: 'Libro eliminado de favoritos correctamente' });
+    res.json({ mensaje: 'Libro eliminado de favoritos correctamente' });
   });
 });
+router.get('/favoritos/verificar/:idArchivo', (req, res) => {
+  const idArchivo = req.params.idArchivo;
+  
+  // Ejemplo de consulta SQL utilizando el módulo 'mysql'
+  const sql = 'SELECT COUNT(*) AS count FROM favorito WHERE idFavorito = ?';
+  const values = [idArchivo];
 
+  // Realiza la consulta a la base de datos
+  connection.query(sql, values, (err, result) => {
+    if (err) {
+      console.error('Error al verificar el estado del libro favorito en la base de datos:', err);
+      res.status(500).json({ error: 'Error al verificar el estado del libro favorito en la base de datos' });
+      return;
+    }
+
+    const existeFavorito = result[0].count > 0;
+    res.json({ existeFavorito });
+  });
+});
 module.exports = router;
