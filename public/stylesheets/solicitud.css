@@ -1,19 +1,14 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-image: url(../images/Fondo_Oscuro.png);
-    background-size: cover;
-}
 
-.container {
+
+.containerrr {
     display: flex;
-    width: 50%;
+    
+    width: 10   0%;
     height: 60%;
+
     border-radius: 40px;
     background-color: #fff;
+    
 }
 
 .text-section {
@@ -22,9 +17,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 }
 
 .divider_1 {
+    
     margin-top: 60px;
     width: 2.5px;
     height: 75%;
@@ -57,6 +54,7 @@ form {
     flex-direction: column;
     height: 100%;
     margin-top: 100px;
+    
 }
 
 .form-section label{

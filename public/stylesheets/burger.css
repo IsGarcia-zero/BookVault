@@ -13,8 +13,11 @@
 menu lateral de hamburguesa
 */
 #btn-menu{
+    height: 40px;
+    width: 40px;
     display: none;   
 }
+
 .container-menu{
     position: absolute;
     background: rgb(0, 0, 0, 0.5);

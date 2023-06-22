@@ -1,3 +1,28 @@
+.container{display: flex;}
+
 .container .btn-menu label{
     cursor: pointer;
 }
+.divider{
+    margin-left: 100px;
+}
+  
+header  .search-bar {
+    display: flex;
+    margin-left: 80px;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 0px;
+    border-radius: 5px;
+    width: 700px;
+  }
+  
+header  .search-bar input {
+    border:0cap;
+    outline: none;
+    margin-left: 50px;
+    background-color: transparent;
+  }
+  
+  .search-bar img {
+    width: 40px;
+  }

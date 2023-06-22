@@ -3,32 +3,67 @@
 <head>
   <title>Bienvenido</title>
   <link rel="stylesheet" type="text/css" href="stylesheets/styles_index.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale= 0.1">
+  <link rel="stylesheet" type="text/css" href="stylesheets/navegacion.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/burger.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/admin.css">
+
 </head>
 <body>
-  <header>
-    <div class="hamburguesa">
-        <label for = "" class="icon-menu"></label> 
-    </div>
-    <nav>
-      <ul>
-        <li class = "logo">Book Valut</li>
-
-        <div class="items">
-            <li><a href="#carrusel1">Carrusel 1</a></li>
-            <li><a href="#carrusel2">Carrusel 2</a></li>
-            <li><a href="#carrusel3">Carrusel 3</a></li>
-            <li><a href="#carrusel4">Carrusel 4</a></li>
+  <header class=" header">
+    <div class = "container "> 
+        <div class = "btn-menu">
+            <label for="btn-menu" class=""> 
+            <img class="menu-icon" src="images/menu.png" width="30px" height="30px" alt="Menu"></label>
         </div>
-        <li class="BUSCADOR">
-          <input type="text" placeholder="Buscar " id="autocomplete_search" />
-          <span id="search_result"></span>
-        <span class="fas fa-search"></span>
-        </li>
-        </ul>
-    </nav>
-  </header>
+        <div class="divider">
+            <img src="images/Titulo.png" width="260px" height="40px" alt="TituloDivider">
+        </div>
+          
+        <div class="search-bar" id="search-bar">
+            <img class="search-icon" src="images/Busqueda.png" alt="Search">
+           <input type="text" placeholder="Que vamos a buscar?" id = "autocomplete_search">
+           <span id="search_result"></span>
+           <span class="fas fa-search"></span> 
+        </div>
+    </div>
+
+    
+</header>
+<input type="checkbox" id = "btn-menu">
+
+<div class="container-menu">
+    <div class="cont-menu">
+        <nav>                
+            <a href="solicitud">
+                <img class="search-icon" src="images/Libro.png" width="30px" height="30px" alt="Search">
+                Solicitar Libro
+            </a>
+            <br>
+            <a href="favoritos">
+                <img class="search-icon" src="images/corazon.png" width="30px" height="30px" alt="Search">
+                Libros Favoritos
+            </a>
+            <br>
+                <a href="retroalimentacion">  
+                    <img class="search-icon" src="images/Retro.png" width="30px" height="30px" alt="Search">
+                    Comentar
+            </a>
+            <br>
+            <a id="rojito" href="#">  
+                <img class="search-icon" src="images/salir.png" width="30px" height="30px" alt="Search">
+                Cerrar sesión
+            </a>
+        </nav>
+        <label for="btn-menu" class="icono-equis"> <img src="images/menu.png" style="transform:rotate(90deg)"; width="25px" height="30px" alt="menu" /></label>
+        <!--<img id="img-letra" src="../View/imagenes/Titulo.png" width="180px" height="30px" alt="menu" />   -->
+        <p id="img-letra">BookVault</p>
+    </div>
+</div>
+
+
+
+
+<!--tengo dudas-->
   <div id="resultadosDiv"></div>
     <% for(let i=0;i<results3[0].cantidad;i++) { %>
         <section id="<%= results2[i].genero %>" class="carrusel">
