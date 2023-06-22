@@ -37,12 +37,12 @@
         <% results1.forEach((libro)=> { %>
         <% if(results2[i].genero == libro.genero) { %>
                 <div class="image-container">
-                <img src="images/<%= libro.img_libro %>" alt="Imagen 1">
+                <img src="bucket/<%=libro.img_libro %>" alt="Imagen 1">
                 <p>DESCRIPCION:</p>
                 <p>TITULO: <%= libro.titulo %></p>
                 <p>AUTOR:<%= libro.nombreAutor %><%= libro.apellidosAutor %></p>
                 <p>EDITORIAL: <%= libro.editorial %></p>
-                <p>URL : <a href='<%= libro.pdf_url %>'>libro</a></p>
+                <p>URL : <a href='bucket/<%= libro.pdf_url %>'>libro</a></p>
             </div>
             <% } %> 
             <% }) %>
