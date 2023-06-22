@@ -34,37 +34,26 @@
 <table>
     <thead>
         <tr>
-            <th>ID LIBRO</th>>
-            <th>ISBN</th>>
-            <th>NOMBRE DEL AUTOR</th>>
-            <th>EDICION</th>>
-            <th>PAGINAS</th>>
-            <th>TITULO</th>>
-            <th>CIUDAD</th>>
-            <th>EDITORIAL</th>>
-            <th>GENERO</th>>
-            <th></th>>
+            <th>TITULO DEL LIBRO</th>>
+            <th>AUTOR DEL LIBRO</th>>
+            <th>EDICION DEL LIBRO</th>
+            <th>ACCIONES</th>
         </tr>
     </thead>
-    <!--<tbody>
-        <% results1.forEach((libro)=> { %>
+    <tbody>
+        <% results1.forEach((sug)=> { %>
             <tr>
-                <td><%= libro.idLibro %></td>
-                <td><%= libro.ISBN %></td>
-                <td><%= libro.nombreAutor %>&nbsp;<%= libro.apellidosAutor %></td>
-                <td><%= libro.edicion %></td>
-                <td><%= libro.cantidadPaginas %></td>
-                <td><%= libro.titulo %></td>
-                <td><%= libro.ciudad %></td>
-                <td><%= libro.editorial %></td>
-                <td><%= libro.genero%></td>
+                <td><%= sug.idSug %></td>
+                <td><%= sug.autorSug %></td>
+                <td><%= sug.edicionSug %></td>
                 <td>
                     <a href="/eliminarlibro/<%= libro.idLibro %>" class="btn">ELIMINAR</a>
                 </form>
                 </td>
             </tr>
         <% }) %>
-    </tbody>-->
+    </tbody>
+   
    
     </table>
     

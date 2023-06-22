@@ -89,7 +89,15 @@ router.get('/lector', requireLogin, (req, res, next) => {
   res.render('lector', { title: 'Express' });
 });
 router.get('/sugerencias', requireLogin, (req, res, next) => {
-  res.render('verSugerencias', { title: 'Express' });
+  connection.query('SELECT * FROM SUGERENCIA',(error, results1, fields)=>{
+    if(error){
+      console.log(error);
+      throw error;
+    }else{
+      console.log(results1);
+      res.render('verSugerencias', { title: 'Express', results1:results1});
+    }  
+})
 });
 router.get('/retroalimentacion', requireLogin, (req, res, next) => {
   res.render('retroalimentacionUsuario', { title: 'Express' });
