@@ -271,6 +271,18 @@ router.get('/gestionar', requireAdminLogin, function (req, res, next) {//Admin
     }
   })
 });
+router.get('/gestionarU', requireAdminLogin, function (req, res, next) {//Admin
+  const sql= "SELECT * FROM USUARIOS WHERE tipo='usuario'";
+  connection.query(sql, (error, results1, fields) => {
+    if (error) {
+      console.log(error);
+      throw error;
+    } else {
+      console.log(results1);
+      res.render('gestionarUsuario', { title: 'Express', results1: results1 });
+    }
+  })
+});
 //router.get('/getData', function(req, res, next) {
 router.get('/getData', requireLogin, function (req, res, next) {
   let searchQuery = req.query.searchQuery;
@@ -296,6 +308,20 @@ router.get('/eliminarlibro/:id', requireAdminLogin, (req, res) => {//Admin
     } else {
       console.log('Libro eliminado correctamente');
       res.redirect('/gestionar'); // Redirecciona al usuario a la página de gestión después de eliminar el libro
+    }
+  })
+});
+router.get('/eliminarusuario/:id', requireAdminLogin, (req, res) => {//Admin
+  const id = req.params.id;
+
+  // Aquí ejecuta tu consulta SQL para eliminar el libro con el libroId
+  connection.query('DELETE FROM USUARIOS WHERE idUsuario = ?', [id], (error, results) => {
+    if (error) {
+      console.log(error);
+      throw error;
+    } else {
+      console.log('Usuario eliminado correctamente');
+      res.redirect('/gestionarU'); // Redirecciona al usuario a la página de gestión después de eliminar el libro
     }
   })
 });
