@@ -70,7 +70,7 @@ router.post('/signup', (req, res) => {
     }
   });
 });
-router.get('/config', requireLogin, (req, res, next) => {
+router.get('/config', requireLogin, (req, res, next) => {// Es pantalla del administrador
   res.render('indexAdmin', { title: 'Express' });
 });
 router.get('/bandeja', requireLogin, (req, res, next) => {
@@ -126,7 +126,7 @@ router.get('/home', requireLogin, function (req, res, next) {
   //res.render('index', { title: 'Express' });
 });
 
-router.get('/gestionar', requireLogin, function(req, res, next) {
+router.get('/gestionar', requireLogin, function(req, res, next) {//Admin
   connection.query('SELECT * FROM LIBRO',(error, results1, fields)=>{
     if(error){
       console.log(error);
@@ -150,7 +150,7 @@ router.get('/getData', requireLogin, function (req, res, next) {
     }
   });
 });
-router.get('/eliminarlibro/:id',requireLogin, (req, res) => {
+router.get('/eliminarlibro/:id',requireLogin, (req, res) => {//Admin
   const id = req.params.id;
 
   // Aquí ejecuta tu consulta SQL para eliminar el libro con el libroId
@@ -166,7 +166,7 @@ router.get('/eliminarlibro/:id',requireLogin, (req, res) => {
 });
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
-  connection.query('SELECT * FROM USUARIO WHERE correo = ?', [email], (error, results, fields) => {
+  connection.query('SELECT * FROM USUARIOS WHERE correo = ?', [email], (error, results, fields) => {
     if (error) {
       console.log(error);
       throw error;
