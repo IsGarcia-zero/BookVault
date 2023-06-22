@@ -307,7 +307,7 @@ router.post('/favoritos/agregar', requireLogin, (req, res) => {
     }
 
     // Agregar el libro a la lista de favoritos del usuario
-    connection.query('INSERT INTO Favorito (nombreAutor, tituloLibro, pdf_url, img_libro, idUsuario) VALUES (?, ?, ?, ?, ?)', [nombreAutor, titulo, pdf_url, img_libro, user], (error, results) => {
+    connection.query('INSERT INTO Favorito (idFavorito, nombreAutor, tituloLibro, pdf_url, img_libro, idUsuario) VALUES (?, ?, ?, ?, ?, ?)', [idArchivo, nombreAutor, titulo, pdf_url, img_libro, user], (error, results) => {
       if (error) {
         console.error('Error al agregar el libro a favoritos:', error);
         return res.status(500).json({ error: 'Error al agregar el libro a favoritos' });
@@ -319,4 +319,23 @@ router.post('/favoritos/agregar', requireLogin, (req, res) => {
     });
   });
 });
+router.delete('/favoritos/:idArchivo', (req, res) => {
+  const idArchivo = req.params.idArchivo;
+  
+  connection.query('DELETE FROM favorito WHERE idFavorito = ?', [idArchivo], (error, result) => {
+    if (error) {
+      // Manejar errores de la base de datos
+      console.error('Error al eliminar el libro de favoritos:', error);
+      return res.status(500).json({ mensaje: 'Error al eliminar el libro de favoritos' });
+    }
+
+    // Verificar si se eliminó algún registro de la base de datos
+    if (result.affectedRows === 0) {
+      // No se encontró ningún libro con el idArchivo especificado, devolver un mensaje de error
+      return res.status(404).json({ mensaje: 'El libro no está en la lista de favoritos' });
+    }
+  res.json({ mensaje: 'Libro eliminado de favoritos correctamente' });
+  });
+});
+
 module.exports = router;

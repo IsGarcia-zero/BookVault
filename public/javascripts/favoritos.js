@@ -1,7 +1,7 @@
 function obtenerDatosLibro() {
     // Obtén el ID del libro o cualquier otro identificador necesario
     const urlParams = new URLSearchParams(window.location.search);
-    const idArchivo = urlParams.get('id'); 
+    const idArchivo = urlParams.get('id');
     // Realiza una llamada a la API para obtener los datos del libro
     fetch('/obtenerLibro/' + idArchivo)
         .then(response => response.json())
@@ -35,10 +35,29 @@ function agregarFav(nombreAutor, fecha, titulo, pdf_url, img_libro, idArchivo) {
                 fecha: fecha,
                 titulo: titulo,
                 pdf_url: pdf_url,
-                img_libro: img_libro, 
+                img_libro: img_libro,
                 idArchivo: idArchivo
             })
         })
+            .then(response => response.json())
+            .then(data => {
+                // Manejar la respuesta del servidor si es necesario
+                console.log(data);
+            })
+            .catch(error => {
+                // Manejar errores de la solicitud
+                console.error(error);
+            });
+    } else {
+        corazon.setAttribute("src", "images/corazon-azul.png");
+        //fetch para eliminar de favoritos
+        eliminarDeFavoritos(idArchivo);
+    }
+}
+function eliminarDeFavoritos(idArchivo) {
+    fetch('/favoritos/' + idArchivo, {
+        method: 'DELETE'
+    })
         .then(response => response.json())
         .then(data => {
             // Manejar la respuesta del servidor si es necesario
@@ -48,8 +67,4 @@ function agregarFav(nombreAutor, fecha, titulo, pdf_url, img_libro, idArchivo) {
             // Manejar errores de la solicitud
             console.error(error);
         });
-    } else {
-        corazon.setAttribute("src", "images/corazon-azul.png");
-        //fetch para eliminar de favoritos
-    }
 }
