@@ -6,7 +6,7 @@ function loadData(query = '') {
         if (responseData.length > 0 && document.getElementById('autocomplete_search').value != '') {
             for (let count = 0; count < responseData.length; count++) {
                 let regular_expression = new RegExp('(' + query + ')', 'gi');
-                html += '<a href="#" class="list-group-item list-group-item-action" onclick="get_text(this)">' + responseData[count].titulo.replace(regular_expression, '<span class="text-primary fw-bold">$1</span>') + '</a>';
+                html += '<a href=lector?file='+responseData[count].pdf_url+' class="list-group-item list-group-item-action" onclick="get_text(this)">' + responseData[count].titulo.replace(regular_expression, '<span class="text-primary fw-bold">$1</span>') + '</a>';
             }
         } else {
             html += '<a href="#" class="list-group-item list-group-item-action disabled">No hay resultados ...</a>';

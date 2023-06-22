@@ -18,10 +18,10 @@ function requireLogin(req, res, next) {
 function requireAdminLogin(req, res, next) {
   if (req.session && req.session.user && req.session.user.tipo === 'admin') {
     next();
-  } else if(req.session && req.session.user){
+  } else if (req.session && req.session.user) {
     console.log('No hay permisos de administrador');
     res.redirect('/home');
-  }else{
+  } else {
     console.log('No hay sesión o no tienes permisos de administrador');
     res.redirect('/');
   }
@@ -128,14 +128,14 @@ router.post('/subirLibros', upload.fields([{ name: 'pdfFile', maxCount: 1 }, { n
     return res.redirect('/config');
   });
 });
-router.get('/obtenerLibroPorNombre', requireLogin, (req, res) => {
-  const fileName = req.query.file; // Obtener el nombre del archivo del query string
+router.get('/obtenerLibro/:id', requireLogin, (req, res) => {
+  const libroId = req.params.id;
 
-  // Construir la consulta SQL para obtener el libro por nombre de archivo
-  const query = `SELECT * FROM LIBRO WHERE pdf_url = ?`;
-  connection.query(query, [fileName], (error, results) => {
+  // Construir la consulta SQL para obtener el libro por su ID
+  const query = `SELECT * FROM LIBRO WHERE idLibro = ?`;
+  connection.query(query, [libroId], (error, results) => {
     if (error) {
-      console.error('Error al obtener el libro por nombre de archivo:', error);
+      console.error('Error al obtener el libro por ID:', error);
       return res.status(500).json({ error: 'Error al obtener el libro' });
     }
 
@@ -226,7 +226,7 @@ router.get('/gestionar', requireAdminLogin, function (req, res, next) {//Admin
 //router.get('/getData', function(req, res, next) {
 router.get('/getData', requireLogin, function (req, res, next) {
   let searchQuery = req.query.searchQuery;
-  let query = `SELECT titulo FROM LIBRO WHERE titulo LIKE ? LIMIT 3`;
+  let query = `SELECT titulo, pdf_url FROM LIBRO WHERE titulo LIKE ? LIMIT 3`;
   connection.query(query, [`%${searchQuery}%`], (err, data) => {
     if (err) {
       console.error(err);
@@ -267,8 +267,9 @@ router.post("/login", (req, res) => {
 
           if (isMatch) {
             req.session.user = {
+              idUsuario: results[0].idUsuario,
               email: results[0].correo,
-              tipo: results[0].tipo
+              tipo: results[0].tipo,    
             };
 
             if (results[0].tipo === "admin") {
@@ -284,6 +285,38 @@ router.post("/login", (req, res) => {
         return res.redirect('/');
       }
     }
+  });
+});
+router.post('/favoritos/agregar', requireLogin, (req, res) => {
+  const { idArchivo } = req.body;
+  const { nombreAutor } = req.body;
+  const { titulo } = req.body;
+  const { pdf_url } = req.body;
+  const { img_libro } = req.body;
+  const  user  = req.session.user.idUsuario;
+  console.log(req.body)
+  // Verificar si el libro ya está en la lista de favoritos del usuario
+  connection.query('SELECT * FROM Favorito WHERE idUsuario = ? AND idFavorito = ?', [user, idArchivo], (error, results, fields) => {
+    if (error) {
+      console.error('Error al verificar el libro en la lista de favoritos:', error);
+      return res.status(500).json({ error: 'Error al agregar el libro a favoritos' });
+    }
+    if (results.length > 0) {
+      // El libro ya está en la lista de favoritos, puedes mostrar un mensaje de error o redirigir a una página de error
+      return res.status(400).json({ error: 'El libro ya está en la lista de favoritos' });
+    }
+
+    // Agregar el libro a la lista de favoritos del usuario
+    connection.query('INSERT INTO Favorito (nombreAutor, tituloLibro, pdf_url, img_libro, idUsuario) VALUES (?, ?, ?, ?, ?)', [nombreAutor, titulo, pdf_url, img_libro, user], (error, results) => {
+      if (error) {
+        console.error('Error al agregar el libro a favoritos:', error);
+        return res.status(500).json({ error: 'Error al agregar el libro a favoritos' });
+      }
+
+      // El libro se agregó correctamente a la lista de favoritos
+      console.log('Libro agregado a favoritos correctamente');
+      return res.status(200).json({ message: 'Libro agregado a favoritos correctamente' });
+    });
   });
 });
 module.exports = router;

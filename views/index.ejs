@@ -42,7 +42,7 @@
                 <p>TITULO: <%= libro.titulo %></p>
                 <p>AUTOR:<%= libro.nombreAutor %><%= libro.apellidosAutor %></p>
                 <p>EDITORIAL: <%= libro.editorial %></p>
-                <p>URL : <a href='lector?file=<%= libro.pdf_url %>'>libro</a></p>
+                <p>URL: <a href='lector?file=<%= libro.pdf_url %>&id=<%= libro.idLibro %>'>libro</a></p>
             </div>
             <% } %> 
             <% }) %>
