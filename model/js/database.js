@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     database: 'BOOKVAULT',
     user: 'root',
-    password: '1234'
+    password: ''
 });
 
 connection.connect((err) => {

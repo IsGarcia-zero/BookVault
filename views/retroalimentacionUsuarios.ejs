@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylesheets/burger.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/admin.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles_index.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/navegacion.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/retro_usuario.css">
     <title>BookVault</title>
@@ -30,15 +33,15 @@
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container2">
         <div class="text-section">
             <h2>Tienes un comentario</h2>
             <p>Danos tu opinion para seguir mejorando!!!.</p>
         </div>
         <div class="divider_1"></div>
         <div class="form-section">
-            <form action="" method="post">
-                <textarea placeholder="Escribe tu comentario aquí..."></textarea>
+            <form action="/enviarRetro" method="post">
+                <textarea name="mensaje" placeholder="Escribe tu comentario aquí..."></textarea>
                 <input type="submit" value="Enviar">
             </form>
         </div>

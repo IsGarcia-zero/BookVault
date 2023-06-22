@@ -137,6 +137,7 @@ router.post('/subirLibros', upload.fields([{ name: 'pdfFile', maxCount: 1 }, { n
     return res.redirect('/config');
   });
 });
+
 router.get('/obtenerLibro/:id', requireLogin, (req, res) => {
   const libroId = req.params.id;
 
@@ -195,10 +196,37 @@ router.get('/sugerencias', requireLogin, (req, res, next) => {
   })
 });
 router.get('/retroalimentacion', requireLogin, (req, res, next) => {
-  res.render('retroalimentacionUsuario', { title: 'Express' });
+  res.render('retroalimentacionUsuarios', { title: 'Express' });
 });
 router.get('/solicitud', requireLogin, (req, res, next) => {
   res.render('solicitud_libros', { title: 'Express' });
+});
+router.post('/enviarRetro', requireLogin, (req, res) => {
+  const mensajeRetro = req.body.mensaje;
+
+  // Realiza la inserción en la base de datos
+  const sql = 'INSERT INTO RETROALIMENTACION (mensajeRetro) VALUES (?)';
+  connection.query(sql, [mensajeRetro], (err, result) => {
+    if (err) {
+      console.error('Error al realizar la inserción:', err);
+      res.sendStatus(500); // Envía una respuesta de error al cliente
+    } else {
+      console.log('Inserción exitosa');
+      res.redirect('/retroalimentacion'); // Envía una respuesta de éxito al cliente
+    }
+  });
+});
+
+router.get('/verretro', (req, res, next) => {
+  connection.query('SELECT * FROM RETROALIMENTACION', (error, results1, fields) => {
+    if (error) {
+      console.log(error);
+      throw error;
+    } else {
+      console.log(results1);
+      res.render('verRetroalimentacion', { title: 'Express', results1: results1 });
+    }
+  })
 });
 
 router.get('/subirLibros', requireAdminLogin, (req, res, next) => {
@@ -256,6 +284,7 @@ router.get('/getData', requireLogin, function (req, res, next) {
     }
   });
 });
+
 router.get('/eliminarlibro/:id', requireAdminLogin, (req, res) => {//Admin
   const id = req.params.id;
 
