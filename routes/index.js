@@ -27,7 +27,7 @@ router.post('/signup', (req, res) => {
   const idUsuario = uuid.v4();
   const emailRegex = /^[A-Za-z0-9._%+-]+@(alumno\.ipn\.mx|ipn\.mx)$/;
   // Verificar si el usuario ya existe en la base de datos
-  connection.query('SELECT * FROM usuarios WHERE correo = ?', [email], (error, results, fields) => {
+  connection.query('SELECT * FROM usuario WHERE correo = ?', [email], (error, results, fields) => {
     if (error) {
       console.log(error);
       throw error;
@@ -166,7 +166,7 @@ router.get('/eliminarlibro/:id',requireLogin, (req, res) => {
 });
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
-  connection.query('SELECT * FROM USUARIO WHERE correo = ?', [email], (error, results, fields) => {
+  connection.query('SELECT * FROM USUARIOS WHERE correo = ?', [email], (error, results, fields) => {
     if (error) {
       console.log(error);
       throw error;
