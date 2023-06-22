@@ -27,6 +27,15 @@ function requireAdminLogin(req, res, next) {
   }
 }
 
+function requireLogout(req, res, next) {
+  if (!req.session || !req.session.user) {
+    next();
+  } else {
+    console.log('Ya hay una sesión activa');
+    res.redirect('/home');
+  }
+}
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/bucket'); // Directorio donde se guardarán los archivos subidos
@@ -44,7 +53,7 @@ const upload = multer({
     fileSize: 50 * 1024 * 1024, // Tamaño máximo del archivo en bytes (en este caso, 5MB)
   },
 });
-router.get('/', (req, res, next) => {
+router.get('/',requireLogout, (req, res, next) => {
   res.render('login', { title: 'Express' });
 
 });
@@ -367,4 +376,14 @@ router.get('/favoritos/verificar/:idArchivo', (req, res) => {
     res.json({ existeFavorito });
   });
 });
+router.get('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+      throw err;
+    }
+    res.redirect('/');
+  });
+});
+
 module.exports = router;
