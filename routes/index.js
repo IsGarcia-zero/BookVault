@@ -15,6 +15,17 @@ function requireLogin(req, res, next) {
     res.redirect('/');
   }
 }
+function requireAdminLogin(req, res, next) {
+  if (req.session && req.session.user && req.session.user.tipo === 'admin') {
+    next();
+  } else if(req.session && req.session.user){
+    console.log('No hay permisos de administrador');
+    res.redirect('/home');
+  }else{
+    console.log('No hay sesión o no tienes permisos de administrador');
+    res.redirect('/');
+  }
+}
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -89,7 +100,7 @@ router.post('/signup', (req, res) => {
     }
   });
 });
-router.get('/config', requireLogin, (req, res, next) => {// Es pantalla del administrador
+router.get('/config', requireAdminLogin, (req, res, next) => {// Es pantalla del administrador
   res.render('indexAdmin', { title: 'Express' });
 });
 router.post('/subirLibros', upload.fields([{ name: 'pdfFile', maxCount: 1 }, { name: 'imageFile', maxCount: 1 }]), (req, res) => {
@@ -173,7 +184,7 @@ router.get('/solicitud', requireLogin, (req, res, next) => {
   res.render('solicitud_libros', { title: 'Express' });
 });
 
-router.get('/subirLibros', requireLogin, (req, res, next) => {
+router.get('/subirLibros', requireAdminLogin, (req, res, next) => {
   res.render('subirLibrosAdmin', { title: 'Express' });
 });
 router.get('/home', requireLogin, function (req, res, next) {
@@ -204,7 +215,7 @@ router.get('/home', requireLogin, function (req, res, next) {
   //res.render('index', { title: 'Express' });
 });
 
-router.get('/gestionar', requireLogin, function (req, res, next) {//Admin
+router.get('/gestionar', requireAdminLogin, function (req, res, next) {//Admin
   connection.query('SELECT * FROM LIBRO', (error, results1, fields) => {
     if (error) {
       console.log(error);
@@ -228,7 +239,7 @@ router.get('/getData', requireLogin, function (req, res, next) {
     }
   });
 });
-router.get('/eliminarlibro/:id', requireLogin, (req, res) => {//Admin
+router.get('/eliminarlibro/:id', requireAdminLogin, (req, res) => {//Admin
   const id = req.params.id;
 
   // Aquí ejecuta tu consulta SQL para eliminar el libro con el libroId
