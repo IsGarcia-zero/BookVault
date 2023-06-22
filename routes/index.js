@@ -57,7 +57,7 @@ router.post('/signup', (req, res) => {
           throw err;
         }
         // Guardar el usuario en la base de datos con la contraseña hasheada
-        connection.query('INSERT INTO usuario (idUsuario, nombre, correo, contrasena, EDAD, tipo) VALUES (?, ? ,?, ?, ?, ?)', [idUsuario, nombres, email, hash, EDAD, tipo], (err, results, fields) => {
+        connection.query('INSERT INTO usuarios (idUsuario, nombre, correo, contrasena, EDAD, tipo) VALUES (?, ? ,?, ?, ?, ?)', [idUsuario, nombres, email, hash, EDAD, tipo], (err, results, fields) => {
           if (err) {
             console.log(err);
             throw err;
